@@ -12,12 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (arr) => {
-  if (arr === []) {
-    return 'vazio';    
+const average = (arr) => { 
+  let somatoria = 0;  
+  if (arr.length === 0) {
+    return undefined;
+  }     
+  for (let i = 0; i < arr.length; i += 1) {
+    if (typeof arr[i] !== 'number') {
+      return undefined;
+    }    
+    somatoria += arr[i];
   }
+  const media = Math.round(somatoria / arr.length);
+  return media;
 };
-
-console.log(average([]));
 
 module.exports = average;
